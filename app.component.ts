@@ -8,5 +8,6 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
 })
 export class App {
-  protected readonly title = signal('ioc-angular-lista-tareas-susana-peake');
+  //protected readonly title = signal('ioc-angular-lista-tareas-susana-peake');
+  public nomApp= 'lista-tareas'; //nom aplicacio
 }
