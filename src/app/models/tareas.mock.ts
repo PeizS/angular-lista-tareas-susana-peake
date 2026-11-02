@@ -1,0 +1,86 @@
+//import de modelo
+import { Tasca } from './tasca.model';
+
+//datos
+export const TAREAS_MOCK: Tasca[] = [
+{id:1,
+descripcioBreu :'Ir al super,cierran a las 9',
+titol:'Comprar carne',
+categoria:'Hogar',
+dataLimit:'2026-11-08',
+horesEstimades:1,
+es_important:true},
+{id:2,
+    descripcioBreu :'Doblar ropa tendida fuera , guardarla y poner  lavadora',
+    titol:'Colada',
+    categoria:'Hogar',
+    dataLimit:'2026-11-04',
+    horesEstimades:2,
+    es_important:false},
+
+    {id:3,
+        descripcioBreu :'Entregar EAC2 de Programación',
+        titol:'EAC2',
+        categoria:'Estudios',
+        dataLimit:'2026-11-03',
+        horesEstimades:6,
+        es_important:true},
+
+        {id:4,
+            descripcioBreu :'Comprar nuevo monedero,el actual es pequeño',
+            titol:'Comprar monedero',
+            categoria:'Ocio',
+            dataLimit:'2026-12-10',
+            horesEstimades:2,
+            es_important:false},
+
+            {id:5,
+                descripcioBreu :'Hacer deberes de Inglés',
+                titol:'Inglés',
+                categoria:'Estudios',
+                dataLimit:'2026-11-15',
+                horesEstimades:4,
+                es_important:true},
+
+                {id:6,
+                    descripcioBreu :'Actualizar CV para buscar un nuevo empleo',
+                    titol:'Nuevo CV',
+                    categoria:'Professional',
+                    dataLimit:'2026-11-09',
+                    horesEstimades:1,
+                    es_important:true},
+
+                    {id:7,
+                        descripcioBreu :'Practicar dibujo en el sketchbook',
+                        titol:'Dibujar',
+                        categoria:'Ocio',
+                        dataLimit:'2026-11-29',
+                        horesEstimades:3,
+                        es_important:false},
+
+                        {id:8,
+                            descripcioBreu :'Fregar los platos y dejar la cocina limpia',
+                            titol:'Platos',
+                            categoria:'Hogar',
+                            dataLimit:'2026-11-10',
+                            horesEstimades:2,
+                            es_important:true},
+
+                            {id:9,
+                                descripcioBreu :'Salir a pasear para mejorar la salud mental',
+                                titol:'Paseo',
+                                categoria:'Ocio',
+                                dataLimit:'2026-11-12',
+                                horesEstimades:2,
+                                es_important:false},
+
+                                {id:10,
+                                    descripcioBreu :'Hacer una limpeza profunda de Pc para liberar memória',
+                                    titol:'Limpieza Pc',
+                                    categoria:'Professional',
+                                    dataLimit:'2026-12-24',
+                                    horesEstimades:4,
+                                    es_important:false},
+
+
+];
