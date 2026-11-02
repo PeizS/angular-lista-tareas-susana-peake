@@ -1,0 +1,47 @@
+
+.main{
+    display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 48rem;
+  margin: 2rem auto;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ea9eb6;
+}
+.introd{
+    background-color: #5a895e;
+    h1 {
+        color: #ffffff;
+      }
+    ;
+    p{
+        color: #ea9eb6
+        ;
+    }
+}
+  .card{
+    padding: 1rem;
+  border:4px dotted #5a895e;
+  border-radius: 0.5rem;
+  background-color: #f8e8d5;
+  h2,p{
+    color: #5a895e;
+  }
+  
+  }
+
+  .nota {
+    padding: 1rem;
+    background: #ebc8e8;
+    //border-left: 4px solid #1976d2;
+    border: 4px dotted #ffffff;
+    border-radius: 20px;
+    p{
+        color: #5a895e;
+    }
+  }
+  .text{
+    p{color: #c0ffbe;}
+    
+
+  }
