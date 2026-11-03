@@ -5,9 +5,46 @@
 
     <!-- cOMPONENT FILTRE DE TASQUES) -->
     <app-filtro-tareas (filtresCanviats)="aplicarFiltres($event)"></app-filtro-tareas>
+
+    <!---comptador de resultats-->
+    <div class="comptador">
+      <p>Resultats trobats: <strong>{{ tasquesFiltrades.length }}</strong></p>
+    </div>
+
+    <!--envolvent llista y detall per css-->
+    <div class="llista-i-detall">
   
-    @for (unaTasca of tasquesFiltrades; track unaTasca.id) {
-      <!-- Passem la tasca individual al component fill -->
-      <app-tarjeta-tarea [tasca]="unaTasca"></app-tarjeta-tarea>
-    }
+   <!-- Control de flux amb @if / @else per mostrar resultats o missatge de buit -->
+  @if (tasquesFiltrades.length > 0) {
+    <div class="llista-targetes">
+      @for (tasca of tasquesFiltrades; track tasca.titol) {
+        <div (click)="seleccionarTasca(tasca)" class="contenidor-tarjeta">
+          <app-tarjeta-tarea [tasca]="tasca"></app-tarjeta-tarea>
+          <!-- Exemple de data formatada amb el pipe date -->
+          <small class="data-limit">Data límit: {{ tasca.dataLimit | date:'dd/MM/yyyy' }}</small>
+        </div>
+      }
+    </div>
+  } @else {
+    <!-- Evidència 2: Missatge quan no hi ha cap resultat -->
+    <div class="missatge-sense-resultats" role="alert">
+      <p>No s'ha trobat cap tasca que coincideixi amb els criteris de cerca.</p>
+    </div>
+  }
+
+  <!-- Evidència 1: Panell de detall de l'element seleccionat -->
+  @if (tascaSeleccionada) {
+    <div class="panell-detall">
+      <h3>Detall de la Tasca Seleccionada</h3>
+      <p><strong>Títol:</strong> {{ tascaSeleccionada.titol }}</p>
+      <p><strong>Descripció:</strong> {{ tascaSeleccionada.descripcioBreu }}</p>
+      <p><strong>Categoria:</strong> {{ tascaSeleccionada.categoria }}</p>
+      <p><strong>Data límit:</strong> {{ tascaSeleccionada.dataLimit | date:'fullDate' }}</p>
+      <p><strong>Hores estimades:</strong> {{ tascaSeleccionada.horesEstimades }} hores</p>
+      <p><strong>Important:</strong> {{ tascaSeleccionada.es_important ? 'Sí' : 'No' }}</p>
+    </div>
+  }
+</div>
+
+
   </div>

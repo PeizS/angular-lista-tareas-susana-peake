@@ -18,6 +18,14 @@ export class ListaTareas {
   //array que se muestra por defecto
   public tasquesFiltrades: Tasca[] = TAREAS_MOCK;
 
+  //Variable per mostrar tasca seleccionada
+  public tascaSeleccionada: Tasca | null = null;
+  
+  public seleccionarTasca(tasca: Tasca): void {
+    this.tascaSeleccionada = tasca;
+  }
+
+
   // Función que recibe el objeto con el texto y la categoría del hijo
   public aplicarFiltres(filtres: FiltresTasca) {
     console.log("Filtres rebuts:", filtres);
