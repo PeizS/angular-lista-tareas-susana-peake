@@ -1,0 +1,14 @@
+
+<br>
+<div class="tarjeta-tasca"[class.es-urgent]="tasca.es_important">
+  <h3>{{ tasca.titol }}</h3>
+  <p>{{ tasca.descripcioBreu }}</p>
+  
+  <div detalls-tasca>
+    <span> Data límit: {{ tasca.dataLimit }}</span>
+    <span>Hores: {{ tasca.horesEstimades }}h</span>
+  </div>
+  
+  <!-- Aquí cridem al subcomponent i li passem només la categoria de la tasca -->
+  <app-categoria [categoria]="tasca.categoria"></app-categoria>
+</div>

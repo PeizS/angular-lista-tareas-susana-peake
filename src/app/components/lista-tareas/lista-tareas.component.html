@@ -1,0 +1,14 @@
+
+<br>
+<div class="llista-container">
+    <h2>Llistat de Tasques </h2>
+
+    <!-- Escuchamos el evento que viene del hijo con (categoriaSeleccionada) -->
+    <app-filtro-tareas (categoriaSeleccionada)="filtrarPerImportancia($event)"></app-filtro-tareas>
+
+  
+    @for (unaTasca of tasquesFiltrades; track unaTasca.id) {
+      <!-- Passem la tasca individual al component fill -->
+      <app-tarjeta-tarea [tasca]="unaTasca"></app-tarjeta-tarea>
+    }
+  </div>
