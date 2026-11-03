@@ -72,3 +72,21 @@ For more information on using the Angular CLI, including detailed command refere
 ## Estat de l'EAC1
 
 ## Enllaç del repositori
+
+# Gestor de Tasques - RA2 Components (Angular)
+
+## Versions utilitzades
+- Angular CLI / Core: Versió 18 o superior 
+- Node.js: Versió LTS
+
+## Comandes principals
+- Executar en desenvolupament: `ng serve`
+- Generar build de producció: `ng build`
+
+## Branca de treball
+- Branca actual: `ra2-components`
+
+## Components creats
+- `ListaTareas` (Component pare / vista principal)
+- `FiltroTareas` (Component de formulari de cerca i filtratge)
+- `TarjetaTarea` (Component visual per a cada element de la llista)
