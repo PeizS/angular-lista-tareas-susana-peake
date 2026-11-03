@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Tasca } from '../../models/tasca.model';
 import { TAREAS_MOCK } from '../../models/tareas.mock';
 import { TarjetaTarea } from '../tarjeta-tarea/tarjeta-tarea.component';
-import { FiltroTareas } from '../filtro-tareas/filtro-tareas.component';
+import { FiltroTareas,FiltresTasca } from '../filtro-tareas/filtro-tareas.component';
 
 @Component({
-  imports: [TarjetaTarea,FiltroTareas],
+  imports: [TarjetaTarea,FiltroTareas,CommonModule],
   selector: 'app-lista-tareas',
   styleUrl: './lista-tareas.component.scss',
   templateUrl: './lista-tareas.component.html',
@@ -17,14 +18,23 @@ export class ListaTareas {
   //array que se muestra por defecto
   public tasquesFiltrades: Tasca[] = TAREAS_MOCK;
 
-  //funcion para el boton de filtrado
-  public filtrarPerImportancia(filtre: any) {
-    console.log("s'ha clickat el filtre");
-    if (filtre === 'totes') {
-      this.tasquesFiltrades = this.tasques; // Si es 'totes', devolvemos la lista entera
-    } else if (filtre === 'urgent' || filtre === 'important') {
-      // Si cliquen "Importants", filtrem només les que tenen es_important a true
-      this.tasquesFiltrades = this.tasques.filter(t => t.es_important === true);
-    }
+  // Función que recibe el objeto con el texto y la categoría del hijo
+  public aplicarFiltres(filtres: FiltresTasca) {
+    console.log("Filtres rebuts:", filtres);
+
+    this.tasquesFiltrades = this.tasques.filter(t => {
+      // 1. Comprova si el títol conté el text buscat (si s'ha escrit)
+      const coincideixText = filtres.text 
+        ? t.titol.toLowerCase().includes(filtres.text.toLowerCase()) 
+        : true;
+
+      // 2. Comprova si coincideix amb la categoria seleccionada (o si és 'Totes')
+      const coincideixCategoria = filtres.categoria === 'Totes' 
+        ? true 
+        : t.categoria === filtres.categoria;
+
+      // Ha de complir les dues condicions a la vegada
+      return coincideixText && coincideixCategoria;
+    });
   }
 }

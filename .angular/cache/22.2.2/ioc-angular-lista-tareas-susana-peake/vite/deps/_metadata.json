@@ -1,35 +1,59 @@
 {
-  "hash": "b75a112a",
-  "configHash": "85844747",
+  "hash": "e84d942a",
+  "configHash": "800d61c9",
   "lockfileHash": "42d97b0c",
-  "browserHash": "b97f376a",
+  "browserHash": "a73a0c6e",
   "optimized": {
+    "@angular/common": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "532a6840",
+      "needsInterop": false
+    },
     "@angular/core": {
       "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "ca791a4b",
+      "fileHash": "0cc650e1",
+      "needsInterop": false
+    },
+    "@angular/forms": {
+      "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
+      "file": "@angular_forms.js",
+      "fileHash": "1527621e",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "f37d3655",
+      "fileHash": "d8579561",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "e3574a95",
+      "fileHash": "3cde26d4",
       "needsInterop": false
     }
   },
   "chunks": {
+    "common-THOh9NgN": {
+      "file": "common-THOh9NgN.js",
+      "isDynamicEntry": false
+    },
     "core-C4Mibiy-": {
       "file": "core-C4Mibiy-.js",
       "isDynamicEntry": false
     },
-    "platform-browser-Dx3EOu5G": {
-      "file": "platform-browser-Dx3EOu5G.js",
+    "createObject-BFBww21R": {
+      "file": "createObject-BFBww21R.js",
+      "isDynamicEntry": false
+    },
+    "from-Du2qsP6n": {
+      "file": "from-Du2qsP6n.js",
+      "isDynamicEntry": false
+    },
+    "platform-browser-DcGrZGxQ": {
+      "file": "platform-browser-DcGrZGxQ.js",
       "isDynamicEntry": false
     }
   }

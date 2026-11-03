@@ -1,4 +1,65 @@
-<div class="filtre-container">
-    <button (click)="filtrar('totes')">Totes</button>
-    <button (click)="filtrar('important')"> Importants</button>
+<form
+  class="filtres"
+  #formulariFiltres="ngForm"
+  (ngSubmit)="aplicaFiltres()"
+  aria-label="Filtres de tasques"
+>
+
+  <!-- Camp de text de cerca amb validació minlength -->
+  <div class="camp">
+    <label for="text">Text de cerca</label>
+    <input
+      id="text"
+      name="text"
+      type="search"
+      [(ngModel)]="filtres.text"
+      #campText="ngModel"
+      minlength="3"
+      placeholder="Opcional, mínim 3 caràcters"
+      aria-describedby="text-ajuda text-error"
+    />
+
+    <span id="text-ajuda" class="ajuda">
+      Opcional: si escriviu text, ha de tenir 3 caràcters com a mínim.
+    </span>
+
+    @if (campText.invalid && (campText.dirty || campText.touched)) {
+      <strong id="text-error" class="error" role="alert">
+        La cerca ha de tenir 3 caràcters com a mínim.
+      </strong>
+    }
   </div>
+
+  <!-- Selector de categoria -->
+  <div class="camp">
+    <label for="categoria">Categoria</label>
+    <select
+      id="categoria"
+      name="categoria"
+      [(ngModel)]="filtres.categoria"
+    >
+      @for (categoria of categories; track categoria) {
+        <option [ngValue]="categoria">{{ categoria }}</option>
+      }
+    </select>
+  </div>
+
+  <!-- Botons d'acció (Botó d'aplicació deshabilitat si el formulari és invàlid) -->
+  <div class="accions">
+    <button
+      type="submit"
+      [disabled]="formulariFiltres.invalid"
+    >
+      Aplicar filtres
+    </button>
+
+    <button
+      type="button"
+      class="secundari"
+      (click)="restableixFiltres()"
+    >
+      Restablir
+    </button>
+  </div>
+
+</form>
