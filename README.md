@@ -75,9 +75,6 @@ For more information on using the Angular CLI, including detailed command refere
 
 # Gestor de Tasques - RA2 Components (Angular)
 
-## Versions utilitzades
-- Angular CLI / Core: Versió 18 o superior 
-- Node.js: Versió LTS
 
 ## Comandes principals
 - Executar en desenvolupament: `ng serve`
