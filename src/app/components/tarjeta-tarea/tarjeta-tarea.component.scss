@@ -1,0 +1,14 @@
+.tarjeta-tasca {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    border-color: #396345;
+      background-color: #5d9b5b;
+  
+    // Si és important, li canviem el fons o li posem una vora cridanera
+    &.es-urgent {
+      border-color: #ff4d4d;
+      background-color: #cf9a9a;
+    }
+  }

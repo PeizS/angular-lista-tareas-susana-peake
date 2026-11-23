@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .llista-i-detall {
+    display: flex;
+    gap: 20px;
+    
+    .llista-targetes {
+      flex: 1;
+    }
+  
+    .panell-detall {
+      flex: 1;
+      background: #436599;
+      padding: 15px;
+      border: 1px solid #ccc;
+    }
+  }
+
+
+
+.panell-detall{
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    border-color: #d66bcd;
+      background-color: #b694b6;
+    
+      h3,p{
+        color: antiquewhite;
+      }
+}
