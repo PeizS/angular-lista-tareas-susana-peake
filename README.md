@@ -87,3 +87,9 @@ For more information on using the Angular CLI, including detailed command refere
 - `ListaTareas` (Component pare / vista principal)
 - `FiltroTareas` (Component de formulari de cerca i filtratge)
 - `TarjetaTarea` (Component visual per a cada element de la llista)
+
+## API Mock (desenvolupament)
+### Arrencar el servidor
+
+```bash
+npm run api
