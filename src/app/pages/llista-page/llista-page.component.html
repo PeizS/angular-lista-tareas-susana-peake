@@ -1,0 +1,70 @@
+<div class="llista-page">
+    <header class="page-header">
+      <h1>Llistat de Tasques</h1>
+      <div class="accions-barra">
+        <button type="button" (click)="choresService.cercar({ terme: '', categoria: '' })">
+          Totes
+        </button>
+        <button type="button" (click)="choresService.cercar({ terme: '', categoria: 'Hogar' })">
+          Hogar
+        </button>
+        <button type="button" (click)="choresService.cercar({ terme: '', categoria: 'Estudios' })">
+          Estudios
+        </button>
+      </div>
+    </header>
+  
+    @switch (choresService.estat().estat) {
+      @case ('inicial') {
+        <div class="estat-inicial">
+          <p>Inicialitzant...</p>
+        </div>
+      }
+  
+      @case ('carregant') {
+        <div class="estat-carregant" role="status" aria-live="polite">
+          <div class="spinner" aria-hidden="true"></div>
+          <p>Carregant tasques...</p>
+        </div>
+      }
+  
+      @case ('error') {
+        <div class="estat-error" role="alert">
+          <h2>Error en carregar les tasques</h2>
+          <p>{{ choresService.estat().error }}</p>
+          <button type="button" class="btn-reintentar" (click)="reintentar()">
+            Reintentar
+          </button>
+        </div>
+      }
+  
+      @case ('exit') {
+        <div class="elements-grid">
+          @for (tasca of choresService.estat().tasques; track tasca.id) {
+            <article class="element-card" (click)="seleccionarTasca(tasca)">
+              <h3>{{ tasca.nom }}</h3>
+              <p class="categoria">{{ tasca.categoria }}</p>
+              <p>{{ tasca.descripcio }}</p>
+              <p><strong>Data límit:</strong> {{ tasca.dataLimit | date:'dd/MM/yyyy' }}</p>
+              <p><strong>Estat:</strong> {{ tasca.estat }} · {{ tasca.horesEstimades }}h</p>
+              <p><strong>Important:</strong> {{ tasca.esImportant ? 'Sí' : 'No' }}</p>
+            </article>
+          } @empty {
+            <p>No s'ha trobat cap tasca.</p>
+          }
+        </div>
+  
+        @if (tascaSeleccionada) {
+          <section class="detall-tasca">
+            <h3>Detall: {{ tascaSeleccionada.nom }}</h3>
+            <p><strong>Descripció:</strong> {{ tascaSeleccionada.descripcio }}</p>
+            <p><strong>Categoria:</strong> {{ tascaSeleccionada.categoria }}</p>
+            <p><strong>Estat:</strong> {{ tascaSeleccionada.estat }}</p>
+            <p><strong>Data límit:</strong> {{ tascaSeleccionada.dataLimit | date:'fullDate' }}</p>
+            <p><strong>Hores estimades:</strong> {{ tascaSeleccionada.horesEstimades }} h</p>
+            <p><strong>Important:</strong> {{ tascaSeleccionada.esImportant ? 'Sí' : 'No' }}</p>
+          </section>
+        }
+      }
+    }
+  </div>

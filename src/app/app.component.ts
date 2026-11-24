@@ -1,14 +1,12 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { ListaTareas } from './components/lista-tareas/lista-tareas.component';
+import { Component } from '@angular/core';
+import { LlistaPageComponent } from './pages/llista-page/llista-page.component';
 
 @Component({
-  imports: [RouterOutlet,ListaTareas],
+  imports: [LlistaPageComponent],
   selector: 'app-root',
   styleUrl: './app.component.scss',
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  //protected readonly title = signal('ioc-angular-lista-tareas-susana-peake');
-  public nomApp= 'lista-tareas'; //nom aplicacio
+  public nomApp = 'lista-tares';
 }

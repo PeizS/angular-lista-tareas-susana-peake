@@ -24,15 +24,7 @@ export class ListaTareas implements OnInit{
   private choresService = inject(Chores);
 
   ngOnInit(): void {
-    this.choresService.obtenirTasques().subscribe({
-      next: (dadesAdaptades) => {
-        this.tasques = dadesAdaptades;
-        this.tasquesFiltrades = dadesAdaptades;
-      },
-      error: (err) => {
-        console.error('Error carregant tasques:', err);
-      },
-    });
+    this.choresService.carregarTot();
   }
   
   public seleccionarTasca(tasca: ElementTasca): void {

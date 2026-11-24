@@ -1,7 +1,7 @@
 {
   "tareas": [
     {
-      "id": 1,
+      "id": "1",
       "descripcioBreu": "Ir al super,cierran a las 9",
       "titol": "Comprar carne",
       "categoria": "Hogar",
@@ -10,7 +10,7 @@
       "es_important": true
     },
     {
-      "id": 2,
+      "id": "2",
       "descripcioBreu": "Doblar ropa tendida fuera , guardarla y poner  lavadora",
       "titol": "Colada",
       "categoria": "Hogar",
@@ -18,9 +18,8 @@
       "horesEstimades": 2,
       "es_important": false
     },
-
     {
-      "id": 3,
+      "id": "3",
       "descripcioBreu": "Entregar EAC2 de Programación",
       "titol": "EAC2",
       "categoria": "Estudios",
@@ -28,9 +27,8 @@
       "horesEstimades": 6,
       "es_important": true
     },
-
     {
-      "id": 4,
+      "id": "4",
       "descripcioBreu": "Comprar nuevo monedero,el actual es pequeño",
       "titol": "Comprar monedero",
       "categoria": "Ocio",
@@ -38,9 +36,8 @@
       "horesEstimades": 2,
       "es_important": false
     },
-
     {
-      "id": 5,
+      "id": "5",
       "descripcioBreu": "Hacer deberes de Inglés",
       "titol": "Inglés",
       "categoria": "Estudios",
@@ -48,9 +45,8 @@
       "horesEstimades": 4,
       "es_important": true
     },
-
     {
-      "id": 6,
+      "id": "6",
       "descripcioBreu": "Actualizar CV para buscar un nuevo empleo",
       "titol": "Nuevo CV",
       "categoria": "Professional",
@@ -58,9 +54,8 @@
       "horesEstimades": 1,
       "es_important": true
     },
-
     {
-      "id": 7,
+      "id": "7",
       "descripcioBreu": "Practicar dibujo en el sketchbook",
       "titol": "Dibujar",
       "categoria": "Ocio",
@@ -68,9 +63,8 @@
       "horesEstimades": 3,
       "es_important": false
     },
-
     {
-      "id": 8,
+      "id": "8",
       "descripcioBreu": "Fregar los platos y dejar la cocina limpia",
       "titol": "Platos",
       "categoria": "Hogar",
@@ -78,9 +72,8 @@
       "horesEstimades": 2,
       "es_important": true
     },
-
     {
-      "id": 9,
+      "id": "9",
       "descripcioBreu": "Salir a pasear para mejorar la salud mental",
       "titol": "Paseo",
       "categoria": "Ocio",
@@ -88,15 +81,24 @@
       "horesEstimades": 2,
       "es_important": false
     },
-
     {
-      "id": 10,
+      "id": "10",
       "descripcioBreu": "Hacer una limpeza profunda de Pc para liberar memória",
       "titol": "Limpieza Pc",
       "categoria": "Professional",
       "dataLimit": "2026-12-24",
       "horesEstimades": 4,
       "es_important": false
+    },
+    {
+      "titol": "Tasca de prova POST",
+      "descripcioBreu": "Element creat per a la captura EAC3",
+      "categoria": "Hogar",
+      "dataLimit": "2026-12-20",
+      "horesEstimades": 2,
+      "es_important": true,
+      "id": "Jl4iVO4-2MQ"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

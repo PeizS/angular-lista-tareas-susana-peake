@@ -24,7 +24,7 @@ export function adaptarTascaApi(apiTasca: TascaApiResponse): ElementTasca {
   const esImportant = apiTasca.es_important === true;
 
   return {
-    id: String(apiTasca.id).trim(),
+    id: String(apiTasca.id ?? '').trim(),
     nom: titolNet, // Si tu interfaz ElementTasca usa 'nom' en lugar de 'titol', cámbialo aquí a `nom: titolNet`
     descripcio: descripcioNeta,
     categoria: categoriaNeta,
