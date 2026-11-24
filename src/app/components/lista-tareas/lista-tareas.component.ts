@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component,OnInit,inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Tasca } from '../../models/tasca.model';
-import { TAREAS_MOCK } from '../../models/tareas.mock';
 import { TarjetaTarea } from '../tarjeta-tarea/tarjeta-tarea.component';
 import { FiltroTareas,FiltresTasca } from '../filtro-tareas/filtro-tareas.component';
+import { ElementTasca } from '../../models/element.model';
+import { Chores } from '../../services/chores.service';
 
 @Component({
   imports: [TarjetaTarea,FiltroTareas,CommonModule],
@@ -11,17 +11,31 @@ import { FiltroTareas,FiltresTasca } from '../filtro-tareas/filtro-tareas.compon
   styleUrl: './lista-tareas.component.scss',
   templateUrl: './lista-tareas.component.html',
 })
-export class ListaTareas {
+export class ListaTareas implements OnInit{
   //array con todass las tareas
-  public tasques: Tasca[] = TAREAS_MOCK;
+  public tasques: ElementTasca[] = [];
 
   //array que se muestra por defecto
-  public tasquesFiltrades: Tasca[] = TAREAS_MOCK;
+  public tasquesFiltrades: ElementTasca[] = [];
 
   //Variable per mostrar tasca seleccionada
-  public tascaSeleccionada: Tasca | null = null;
+  public tascaSeleccionada: ElementTasca | null = null;
+  //servicio
+  private choresService = inject(Chores);
+
+  ngOnInit(): void {
+    this.choresService.obtenirTasques().subscribe({
+      next: (dadesAdaptades) => {
+        this.tasques = dadesAdaptades;
+        this.tasquesFiltrades = dadesAdaptades;
+      },
+      error: (err) => {
+        console.error('Error carregant tasques:', err);
+      },
+    });
+  }
   
-  public seleccionarTasca(tasca: Tasca): void {
+  public seleccionarTasca(tasca: ElementTasca): void {
     this.tascaSeleccionada = tasca;
   }
 
@@ -33,7 +47,7 @@ export class ListaTareas {
     this.tasquesFiltrades = this.tasques.filter(t => {
       // 1. Comprova si el títol conté el text buscat (si s'ha escrit)
       const coincideixText = filtres.text 
-        ? t.titol.toLowerCase().includes(filtres.text.toLowerCase()) 
+        ? t.nom.toLowerCase().includes(filtres.text.toLowerCase()) 
         : true;
 
       // 2. Comprova si coincideix amb la categoria seleccionada (o si és 'Totes')

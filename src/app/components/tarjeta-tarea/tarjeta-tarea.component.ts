@@ -1,6 +1,7 @@
 import { Component,Input } from '@angular/core';
 import { Tasca } from '../../models/tasca.model';
 import { Categoria } from '../categoria/categoria.component';
+import { ElementTasca } from '../../models/element.model';
 
 @Component({
   imports: [Categoria],
@@ -10,5 +11,5 @@ import { Categoria } from '../categoria/categoria.component';
 })
 export class TarjetaTarea {
   // @Input() s'encarrega de capturar la tasca que li envia el component pare
-  @Input() tasca!:Tasca;
+  @Input() tasca!:ElementTasca;
 }
