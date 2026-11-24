@@ -88,8 +88,26 @@ For more information on using the Angular CLI, including detailed command refere
 - `FiltroTareas` (Component de formulari de cerca i filtratge)
 - `TarjetaTarea` (Component visual per a cada element de la llista)
 
-## API Mock (desenvolupament)
-### Arrencar el servidor
+# Gestió de Tasques (Angular) - EAC3 (`ra3-serveis`)
 
-```bash
-npm run api
+Aplicació web desenvolupada amb Angular per gestionar i cercar tasques de manera reactiva contra una API REST local.
+
+## Entorn i versions
+- **Framework:** Angular (CLI / Core v21/22)
+- **API simulada:** `json-server` al port `4301` (`tools/api/chores.json`)
+- **Branca de desenvolupament:** `ra3-serveis`
+
+## Comandes principals
+- `npm install`: instal·la les dependències del projecte.
+- `npm run api`: arrenca el servidor mock `json-server` a `http://localhost:4301` (recurs `/tareas`).
+- `npm start` (o `ng serve`): arrenca l'aplicació en desenvolupament a `http://localhost:4200`.
+- `npm test` (o `ng test --watch=false`): executa els tests unitaris amb Vitest.
+- `npm run build`: genera la compilació de producció a `dist/`.
+
+## Arquitectura implementada
+- **Models i Adaptador (`src/app/models/`, `src/app/adaptadors/`):** Separació entre `TascaApiResponse` (contracte API) i `ElementTasca` (model intern normalitzat mitjançant `adaptarTascaApi` i `adaptarTasquesApi`).
+- **Serveis (`src/app/services/`):**
+  - `Chores`: gestió reactiva amb `signal`, `Subject` + `switchMap`, peticions `GET` i `POST` a `/tareas`, control d'estats (`inicial`, `carregant`, `exit`, `error`) i mètode `reintentar()`.
+  - `HistorialCerquesService`: persistència de les darreres 8 cerques a `localStorage` amb `signal` i protecció `try/catch`.
+- **Formularis i Validació (`src/app/components/formulari-cerca/`, `src/app/validadors/`):** Formulari reactiu (`FormGroup`) amb validació síncrona (`Validators.minLength(3)`) i validador asíncron (`termeAmbResultatsValidator` amb `timer(400)` i `switchMap`).
+
