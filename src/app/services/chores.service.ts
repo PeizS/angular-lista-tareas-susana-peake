@@ -97,6 +97,7 @@ export class Chores {
     if (criteris.categoria && criteris.categoria !== 'Totes') {
       params = params.set('categoria', criteris.categoria);
     }
+    
 
     return this.http.get<TascaApiResponse[]>(this.apiUrl, { params }).pipe(
       map(adaptarTasquesApi),
@@ -125,4 +126,24 @@ export class Chores {
       default:
         return `Error inesperat (${error.status}): ${error.message}`;
     }
-  }}
+  }
+  //metode per comptar resultats
+
+  comptarResultats(terme: string): Observable<number> {
+    const text = terme.trim().toLocaleLowerCase('ca');
+    if (text.length < 3) {
+      return of(0);
+    }
+  
+    return this.http.get<TascaApiResponse[]>(this.apiUrl).pipe(
+      map(adaptarTasquesApi),
+      map(
+        (tasques) =>
+          tasques.filter((tasca) =>
+            `${tasca.nom} ${tasca.descripcio}`.toLocaleLowerCase('ca').includes(text)
+          ).length
+      ),
+      catchError(() => of(0))
+    );
+  }
+}

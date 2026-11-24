@@ -1,10 +1,11 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { Chores } from '../../services/chores.service';
+import { Chores,CriterisCerca } from '../../services/chores.service';
 import { ElementTasca } from '../../models/element.model';
+import { FormulariCercaComponent } from '../../components/formulari-cerca/formulari-cerca.component';
 
 @Component({
-  imports: [DatePipe],
+  imports: [DatePipe, FormulariCercaComponent],
   selector: 'app-llista-page',
   styleUrl: './llista-page.component.scss',
   templateUrl: './llista-page.component.html',
@@ -15,6 +16,10 @@ export class LlistaPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.choresService.carregarTot();
+  }
+
+  onCerca(criteris: CriterisCerca): void {
+    this.choresService.cercar(criteris);
   }
 
   reintentar(): void {

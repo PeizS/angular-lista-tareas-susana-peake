@@ -1,17 +1,7 @@
 <div class="llista-page">
     <header class="page-header">
       <h1>Llistat de Tasques</h1>
-      <div class="accions-barra">
-        <button type="button" (click)="choresService.cercar({ terme: '', categoria: '' })">
-          Totes
-        </button>
-        <button type="button" (click)="choresService.cercar({ terme: '', categoria: 'Hogar' })">
-          Hogar
-        </button>
-        <button type="button" (click)="choresService.cercar({ terme: '', categoria: 'Estudios' })">
-          Estudios
-        </button>
-      </div>
+      <app-formulari-cerca (cercaEnviada)="onCerca($event)" />
     </header>
   
     @switch (choresService.estat().estat) {

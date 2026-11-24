@@ -18,3 +18,8 @@ export interface EstatTasques {
   tasques: ElementTasca[];
   error?: string;
 }
+export interface CercaDesada {
+  terme: string;
+  categoria: string;
+  data: string;   // ISO 8601, moment en què es va fer
+}
